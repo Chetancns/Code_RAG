@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code RAG Console</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-a"></div>
+    <div class="bg-orb orb-b"></div>
+    <div class="grid-overlay" aria-hidden="true"></div>
+
+    <main class="layout">
+      <header class="hero reveal">
+        <p class="eyebrow">NestJS + pgvector + RAG</p>
+        <h1>Code RAG Console</h1>
+        <p class="subtitle">
+          Index source folders and ask contextual questions from one interface.
+        </p>
+      </header>
+
+      <section class="panel reveal" style="--delay: 120ms">
+        <div class="panel-head">
+          <h2>1. Index Folder</h2>
+          <span id="indexStatus" class="status">Idle</span>
+        </div>
+        <form id="indexForm" class="stack">
+          <label for="folderPath">Folder Path</label>
+          <input
+            id="folderPath"
+            name="folderPath"
+            type="text"
+            placeholder="C:/path/to/repository"
+            required
+          />
+          <button type="submit">Start Indexing</button>
+        </form>
+        <pre id="indexResult" class="output" aria-live="polite"></pre>
+      </section>
+
+      <section class="panel reveal" style="--delay: 220ms">
+        <div class="panel-head">
+          <h2>2. Ask Questions</h2>
+          <span id="chatStatus" class="status">Idle</span>
+        </div>
+        <form id="chatForm" class="stack">
+          <label for="question">Question</label>
+          <textarea
+            id="question"
+            name="question"
+            rows="4"
+            placeholder="How does incremental indexing work in this project?"
+            required
+          ></textarea>
+          <button type="submit">Ask API</button>
+        </form>
+        <pre id="chatResult" class="output" aria-live="polite"></pre>
+      </section>
+    </main>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>

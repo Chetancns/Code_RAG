@@ -55,6 +55,18 @@ npm run start:dev
 
 Server default port: `3030` (set `PORT` to override).
 
+## Web Interface
+
+After starting the server, open:
+
+- `http://localhost:3030/`
+
+The UI lets you:
+
+- Submit a folder path to `POST /index`
+- Ask questions through `POST /chat`
+- View formatted responses and request errors directly in the browser
+
 ## Environment Variables
 
 ### Database
